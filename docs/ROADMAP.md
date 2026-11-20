@@ -18,11 +18,13 @@ Legend: 🔴 understand deeply · 🟠 solid working understanding · 🟢 aware
 
 - **Requirements document** (`docs/04-requirements.md`, 2–4 pages, course deadline: class 6): stakeholders, core journey, exclusions; prioritized requirements (Must / Should / Could / Later) with stable IDs and Given/When/Then acceptance criteria, including failure cases; measurable quality requirements and constraints.
 - **Detailed design** (`docs/05-detailed-design.md`, 5–10 pages, course deadline: class 8): architecture (responsibilities and boundaries), data model and invariants, one core feature end to end (normal flow plus one failure path), interface contract, deployment choice, how the design supports acceptance tests and experiments.
-- ADR-001 (database), ADR-002 (repository structure: monorepo with packages).
+- ADR-001 (database), ADR-002 (architecture style: modular monolith, one deployable with clear internal modules).
+- Course deadlines are tracked in `docs/COURSE_DELIVERABLES.md`.
 - Repo setup: TypeScript strict, ESLint/Prettier, Vitest, Docker Compose with PostgreSQL + pgvector, `.env.example`, GitHub Actions running lint + tests.
 
 **Concepts**
 - 🔴 Requirements vs. architecture; data flow through the system; relational data model (entities and relations: dataset → case, run → trial → grader result)
+- 🔴 Modular monolith: module boundaries and why not microservices
 - 🟠 Docker Compose; environment variables and secrets; CI pipeline basics; monorepo layout
 - 🟢 Linter and formatter configuration; tsconfig options
 

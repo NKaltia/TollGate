@@ -31,6 +31,7 @@ The two parts are connected on purpose. Every cost optimization the gateway make
 | 3 | [Competitors review](docs/03-competitors-review.md) | Draft v1 |
 | 4 | Project analysis | Planned (M0) |
 | — | [Roadmap and milestones](docs/ROADMAP.md) | v1 |
+| — | [Course deliverables tracker](docs/COURSE_DELIVERABLES.md) | Ongoing |
 | — | [Architecture Decision Records](docs/adr/README.md) | Ongoing |
 | — | [Learning log](docs/learning/LEARNING_LOG.md) | Ongoing |
 
