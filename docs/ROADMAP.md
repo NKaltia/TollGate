@@ -16,7 +16,8 @@ Legend: 🔴 understand deeply · 🟠 solid working understanding · 🟢 aware
 
 **Goal:** know exactly what to build before building it; have a working skeleton.
 
-- Project analysis document: functional and non-functional requirements, main use cases, architecture diagram, data flow, first data model.
+- **Requirements document** (`docs/04-requirements.md`, 2–4 pages, course deadline: class 6): stakeholders, core journey, exclusions; prioritized requirements (Must / Should / Could / Later) with stable IDs and Given/When/Then acceptance criteria, including failure cases; measurable quality requirements and constraints.
+- **Detailed design** (`docs/05-detailed-design.md`, 5–10 pages, course deadline: class 8): architecture (responsibilities and boundaries), data model and invariants, one core feature end to end (normal flow plus one failure path), interface contract, deployment choice, how the design supports acceptance tests and experiments.
 - ADR-001 (database), ADR-002 (repository structure: monorepo with packages).
 - Repo setup: TypeScript strict, ESLint/Prettier, Vitest, Docker Compose with PostgreSQL + pgvector, `.env.example`, GitHub Actions running lint + tests.
 
