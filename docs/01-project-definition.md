@@ -115,9 +115,9 @@ Each stage ends with a working, demonstrable result.
 
 Stages 1–3 alone form a complete project. Stages 4–5 add the systems-engineering part and the main research result (RQ4).
 
-## 1.9 Technology decisions (open)
+## 1.9 Technology decisions
 
-The core stack is TypeScript, Node.js / Express, GitHub Actions and Docker, with React for a later dashboard. The **database choice is deliberately left open** and will be justified in **ADR-001** during the project analysis (next milestone):
+The core stack is TypeScript, Node.js / Express, GitHub Actions and Docker, with React for a later dashboard. **Database: PostgreSQL + pgvector** (preliminary decision; the full reasoning will be written up as **ADR-001** in the project analysis). The alternatives considered:
 
 | | PostgreSQL (+ pgvector) | MongoDB (+ Mongoose) |
 |---|---|---|
@@ -125,6 +125,8 @@ The core stack is TypeScript, Node.js / Express, GitHub Actions and Docker, with
 | Statistics: joins, grouping, paired comparisons | SQL, strong fit | Aggregation pipeline, less natural |
 | Concurrent budget accounting | Transactions, row locks | Atomic update operators (`$inc`) |
 | Semantic cache similarity search | pgvector in the same database | Atlas Vector Search; local option to be verified |
+
+**Why PostgreSQL:** the core of the project is statistical comparison of runs, consistent budget accounting and similarity search for the semantic cache. PostgreSQL covers all three in one database: SQL for analysis, transactions, pgvector. Its JSONB columns are flexible enough for traces of varying shape. Running two databases would add operational complexity with no measurable benefit at this scale.
 
 ## 1.10 Deliverables
 

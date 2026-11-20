@@ -29,7 +29,10 @@ The two parts are connected on purpose. Every cost optimization the gateway make
 | 1 | [Project definition](docs/01-project-definition.md) | Draft v1 |
 | 2 | [Literature review](docs/02-literature-review.md) | Draft v1 |
 | 3 | [Competitors review](docs/03-competitors-review.md) | Draft v1 |
-| 4 | Project analysis | Planned (next week) |
+| 4 | Project analysis | Planned (M0) |
+| — | [Roadmap and milestones](docs/ROADMAP.md) | v1 |
+| — | [Architecture Decision Records](docs/adr/README.md) | Ongoing |
+| — | [Learning log](docs/learning/LEARNING_LOG.md) | Ongoing |
 
 ## Status
 
@@ -41,4 +44,4 @@ Planning phase. No implementation code yet. The first system under test will be 
 
 ## Planned stack
 
-TypeScript, Node.js / Express, GitHub Actions, Docker, LLM provider APIs, with React for a later dashboard. The database (PostgreSQL + pgvector vs. MongoDB) will be chosen and justified in ADR-001 during the project analysis.
+TypeScript, Node.js / Express, **PostgreSQL + pgvector**, GitHub Actions, Docker, LLM provider APIs, with React for a later dashboard. The database choice (PostgreSQL over MongoDB) will be documented in ADR-001 during the project analysis.
