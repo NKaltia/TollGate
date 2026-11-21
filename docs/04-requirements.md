@@ -33,7 +33,7 @@ Priorities: **Must** (essential to the agreed first version), **Should** (valuab
 |---|---|---|---|
 | R1 | Run a variant on a dataset version and store per-case results and an aggregate score | A known dataset produces a stored run with one result per case and a score | Must |
 | R2 | Grade outputs with deterministic graders (retrieval hit@k, answer match, correct refusal) | Hand-made fixtures with known correct / incorrect outputs are graded as expected | Must |
-| R3 | Compare a baseline run with a candidate run: paired difference, 95% confidence interval, regression list | A candidate with known injected differences is reported with the correct regressions | Must |
+| R3 | Compare a baseline run with a candidate run: paired difference, 95% confidence interval, regression list | A candidate deliberately broken on a known set of cases (e.g. their source documents removed) is reported with exactly those cases as regressions | Must |
 | R4 | CI gate: a pull request fails when quality on the smoke set drops significantly | A deliberately broken variant fails the CI check; an unchanged variant passes | Must |
 | R5 | LLM judge for open-ended answers, validated against human labels | Agreement with a hand-labelled subset is computed and reported | Should |
 | R6 | Gateway: proxy with timeouts, retries, fallback, and a trace record per model call (model, tokens, cost, latency) | With the primary provider failing, requests still succeed via fallback and every call appears in the trace log | Should |
@@ -61,6 +61,7 @@ Priorities: **Must** (essential to the agreed first version), **Should** (valuab
 - **When** the engineer requests a comparison,
 - **Then** the report shows the per-metric difference (candidate − baseline) with a 95% confidence interval from a paired comparison, and lists cases that passed in the baseline but fail in the candidate.
 - **Also check (failure):** comparing runs on **different** dataset versions is refused with a clear error, because the comparison would not be fair.
+- **Evidence (how we test R3 itself):** create a candidate that is *deliberately* broken on a known set of cases, for example by removing the source documents for cases 5, 12 and 30, or by using a fake system under test with predefined answers. Since we know in advance which cases must regress, the report passes the check only if it lists exactly those cases. Unchanged cases must not appear as regressions.
 
 **R4: CI regression gate**
 - **Given** a pull request that changes the system under test or its configuration,
