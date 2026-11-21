@@ -23,7 +23,7 @@
 
 ### Exclusions (out of scope)
 
-Training or fine-tuning models; executing arbitrary generated code; supporting more than one system under test at the same time; a commercial-grade UI; multi-region deployment; Kafka, Kubernetes, microservices.
+Training or fine-tuning models; publishing results based on real user data (research results use public datasets only); executing arbitrary generated code; supporting more than one system under test at the same time; a commercial-grade UI; multi-region deployment; Kafka, Kubernetes, microservices.
 
 ## 4.2 Prioritized functional requirements
 
@@ -39,6 +39,7 @@ Priorities: **Must** (essential to the agreed first version), **Should** (valuab
 | R6 | Gateway: proxy with timeouts, retries, fallback, and a trace record per model call (model, tokens, cost, latency) | With the primary provider failing, requests still succeed via fallback and every call appears in the trace log | Should |
 | R7 | Semantic cache with per-tenant isolation, and a threshold-sweep experiment (RQ4) | Report of hit rate, savings, false hits and quality per threshold; zero cross-tenant hits | Should |
 | R8 | Per-tenant budgets; results dashboard | Budget is never exceeded under concurrent requests; dashboard shows run comparisons | Could |
+| R10 | Promote a recorded trace to a test case after review, with personal data redacted | A promoted case contains no e-mail addresses, phone numbers or names from a seeded test trace | Could |
 | R9 | Adaptive cache thresholds; multiple systems under test | — | Later |
 
 ### Detailed acceptance criteria for the Must requirements

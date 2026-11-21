@@ -67,6 +67,21 @@ Every gateway policy can be evaluated by the harness:
 | Cheaper model routing | cost | lower correctness |
 | Fallback provider | availability | different answer quality |
 
+### Where test cases come from
+
+1. **Public datasets with known answers** (e.g. SQuAD v2, BEIR SciFact, Quora Question Pairs). Used for the research results, because they provide ground truth and are reproducible.
+2. **Real failures captured by the gateway.** When the system gives a bad answer, its trace (the conversation and every model call) can be **promoted to a test case** after review: the input, plus the behaviour the system should have shown. The case stays in the dataset as a permanent regression test.
+
+This forms a continuous loop: *failure → trace → new test case → configuration change → evaluation on all cases → release only if nothing else regressed*. The gateway and tracing run all the time; evaluations run on every change (smoke set in CI) and before major upgrades (full set).
+
+### Privacy of real user data
+
+Turning real conversations into test cases means storing user data, so:
+- a trace becomes a test case only through an **explicit, reviewed action**, never automatically;
+- **personal data is redacted** (names, emails, phone numbers, IDs) before a case is stored;
+- traces and cases are **isolated per tenant** and have a **retention limit**;
+- in this project, real-user cases come only from the author's own system and consenting test users; **all published research results use public datasets only**.
+
 ## 1.4 System under test
 
 The first target is the author's existing RAG knowledge assistant (TypeScript, PostgreSQL + pgvector, Gemini API), evaluated on public datasets with known answers, for example **BEIR SciFact** for retrieval and **HotpotQA** / **SQuAD v2** for question answering, including unanswerable questions. A tool-using agent may be added in a later stage.
