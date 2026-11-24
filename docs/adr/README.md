@@ -13,7 +13,9 @@ An ADR is a short document that records one important decision: the context, the
 
 | # | Decision | Status |
 |---|----------|--------|
-| 0001 | Database: PostgreSQL + pgvector | Planned (M0) |
+| [0001](0001-database-postgresql.md) | Database: PostgreSQL + pgvector | Accepted |
+| [0002](0002-modular-monolith.md) | Architecture style: modular monolith | Accepted |
+| [0003](0003-sut-black-box-http.md) | Harness treats the SUT as a black box over HTTP | Accepted |
 
 ## Template
 

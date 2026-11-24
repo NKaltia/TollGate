@@ -30,7 +30,7 @@ The two parts are connected on purpose. Every cost optimization the gateway make
 | 2 | [Literature review](docs/02-literature-review.md) | Draft v1 |
 | 3 | [Competitors review](docs/03-competitors-review.md) | Draft v1 |
 | 4 | [Requirements: testable MVP scope](docs/04-requirements.md) | Draft v1 |
-| 5 | Detailed design | Planned (M0) |
+| 5 | [Detailed design](docs/05-detailed-design.md) | Draft v0 |
 | — | [Roadmap and milestones](docs/ROADMAP.md) | v1 |
 | — | [Course deliverables tracker](docs/COURSE_DELIVERABLES.md) | Ongoing |
 | — | [Architecture Decision Records](docs/adr/README.md) | Ongoing |

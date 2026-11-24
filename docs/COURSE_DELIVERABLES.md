@@ -12,7 +12,7 @@ Status: ⬜ not started · 🟡 in progress · ✅ submitted
 | 4 | First meeting with supervisor | Meeting | Week of 18.11.2026 | — | ⬜ not held yet, reschedule |
 | 5 | Project analysis (personal meeting) | Meeting | TBD | — | ⬜ |
 | 6 | **Requirements: testable MVP scope** (2–4 pages) | Doc | **By class 6** (date TBD) | `docs/04-requirements.md` | 🟡 draft v1 written, under review |
-| 7 | **Detailed design: one feature end to end** (5–10 pages, keep current) | Doc | **By class 8** (date TBD) | `docs/05-detailed-design.md` | ⬜ |
+| 7 | **Detailed design: one feature end to end** (5–10 pages, keep current) | Doc | **By class 8** (date TBD) | `docs/05-detailed-design.md` | 🟡 draft v0 (simple version) |
 
 ## Notes
 
