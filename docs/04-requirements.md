@@ -76,7 +76,7 @@ Priorities: **Must** (essential to the agreed first version), **Should** (valuab
 |---|---|---|
 | Q1 | **Reproducibility.** Re-running a variant with recorded model responses yields identical deterministic scores in 100% of cases. | Run the same variant twice with model-response caching enabled; compare per-case results. Local Docker Compose environment. |
 | Q2 | **Cost control.** A run never exceeds its configured budget by more than the cost of the calls already in flight at the moment the limit is reached. | Run with a deliberately low budget and concurrency 10; compare recorded spend to the limit. |
-| Q3 | **Gateway overhead.** 95% of requests through the gateway add ≤ 50 ms compared with calling the provider directly. | A mock provider with a fixed response replaces the real model; 10 concurrent clients, 1,000 requests; measure p95 of (gateway latency − direct latency). Record hardware and versions. |
+| Q3 | **Gateway overhead.** For 95% of requests, the gateway's own processing time is ≤ 50 ms. | A mock provider with a fixed, instant response replaces the real model, so only the gateway's own work is measured. A load generator simulates 10 concurrent clients sending 1,000 requests. **Primary metric:** the gateway records, per request, its total handling time minus the time spent waiting for the provider; we report the p95 of these values. **Cross-check:** p95 latency of 1,000 requests via the gateway vs. 1,000 requests sent directly to the mock. Record hardware and versions. |
 
 Q1 and Q2 apply to the Must scope. Q3 applies once R6 is implemented.
 
